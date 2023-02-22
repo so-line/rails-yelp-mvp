@@ -1,6 +1,9 @@
+<h3>Here are all your restaurants:</h3>
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><strong><%= restaurant.name %></strong>
+    <li><strong><%= link_to restaurant.name, restaurant %></strong>
     - <%= restaurant.address %></li>
   <% end %>
 </ul>
+
+<small><em>Number of restaurants: <%= Restaurant.all.count %></em></small>
