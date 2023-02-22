@@ -1,9 +1,13 @@
-<h3>Here are all your restaurants:</h3>
+<div class="p-5 m-5 container-sm border border-warning">
+<h3>😋 Here are all your restaurants :</h3>
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li><strong><%= link_to restaurant.name, restaurant %></strong>
-    - <%= restaurant.address %></li>
+    - <em><%= restaurant.address %></em></li>
   <% end %>
 </ul>
 
-<small><em>Number of restaurants: <%= Restaurant.all.count %></em></small>
+<strong><%= link_to "Add a new restaurant", new_restaurant_path %></strong>
+<br>
+<small><em># Restaurants: <%= Restaurant.all.count %></em></small>
+</div>>

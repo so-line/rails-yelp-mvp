@@ -1,13 +1,25 @@
-<h3><%= @restaurant.name %></h3>
-<p><strong>Address:</strong> <%= @restaurant.address %><strong> Phone Number: </strong> <%= @restaurant.phone_number %>
-<strong>Category:</strong> <%= @restaurant.category.capitalize %></p>
+<div class="p-5 m-5 container-sm border border-warning">
+  <h2><%= @restaurant.name %></h2>
+  <br>
+  <p><strong>📍 Address:</strong> <%= @restaurant.address %>
+  <br><strong>📞 Phone Number: </strong><%= @restaurant.phone_number %>
+  <br><strong>🍽 Category:</strong> <%= @restaurant.category.capitalize %></p>
 
-<small><%= link_to "All Restaurants", restaurants_path %></small> -
+  <small><%= link_to "All Restaurants", restaurants_path %></small> -
 
-<small><%= link_to "Delete", restaurant_path(@restaurant),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></small> -
+  <small><%= link_to "Delete", restaurant_path(@restaurant),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></small> -
 
-<small><%= link_to "Edit", restaurant_path(@restaurant),
-  data: {turbo_method: :patch} %></small> -
+  <small><%= link_to "Edit", edit_restaurant_path(@restaurant) %></small> -
 
-<small><%= link_to "Review", restaurants_path %></small>
+  <small><%= link_to "Review", new_restaurant_review_path(@restaurant) %></small>
+
+  <br><br>
+  <p><strong>🧐 Reviews</strong></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.rating %>/5 - <%= review.content %></li>
+    <% end %>
+  </ul>
+  <br>
+</div>

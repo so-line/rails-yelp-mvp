@@ -1,12 +1,14 @@
-<h3>Let's add a new restaurant: </h3>
-<%= form_with model: @restaurant do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :phone_number %>
-  <%= f.number_field :phone_number %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.submit %>
-<% end %>
+<div class="p-5 m-5 container-sm border border-warning">
+  <h3>🤌 New Restaurant : </h3><br>
+  <%= form_with model: @restaurant do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :address %>
+    <%= f.text_field :address %><br><br>
+    <%= f.label :phone_number %>
+    <%= f.number_field :phone_number %><br><br>
+    <%= f.label :category %>
+    <%= f.text_field :category %><br><br>
+  <%= f.submit "Add restaurant", class: "btn btn-outline-warning" %>
+  <% end %>
+</div>
